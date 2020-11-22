@@ -1,0 +1,274 @@
+body {
+  background-color: steelblue;
+  font-family: Open Sans, sans-serif;
+  font-size: 0.8rem;
+}
+
+#paintingDescription,
+#paintingMedium {
+  font-style: italic;
+  margin: 0;
+}
+
+#paintingTitle {
+  margin-top: 0px;
+}
+
+/*
+  Used for reference on making pop up modal
+  https://www.w3schools.com/howto/howto_css_modals.asp
+*/
+#modalContainer {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+}
+
+#popupModal {
+  position: fixed;
+  top: 5%;
+  left: 25%;
+}
+
+/*
+References for an idea of how to take care of columns resizing after gallery list hidden
+https://stackoverflow.com/questions/61281071/css-grid-layout-hide-center-column-and-adjust-grid-to-compensate
+https://stackoverflow.com/questions/43301949/how-to-make-a-column-span-full-width-when-a-second-column-is-not-there-css-gri
+https://stackoverflow.com/questions/45799207/how-to-make-css-grid-items-take-up-remaining-space
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content
+https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns
+https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow
+
+Reference for lightbox view when larger image is clicked
+https://www.w3schools.com/howto/howto_js_lightbox.asp
+*/
+
+#largeImageView {
+  display: grid;
+}
+
+.container {
+  display: grid;
+  padding: 40px;
+  grid-gap: 10px;
+  color: #444;
+  grid-template-areas:
+    "header header header header"
+    "gallery info paintings paintings"
+    "gallery map paintings paintings"
+    "gallery . paintings paintings";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 6.5rem 22rem 20rem;
+}
+
+.box {
+  background-color: lightsteelblue;
+  color: black;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+
+.a {
+  grid-area: paintings;
+}
+
+.b {
+  grid-area: gallery;
+}
+
+.c {
+  grid-area: info;
+}
+
+.d {
+  grid-area: map;
+}
+
+.e {
+  grid-area: header;
+  padding: 15px;
+}
+
+.f {
+  display: grid;
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 1;
+  text-align: center;
+}
+
+.h {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.i {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/*
+Used the button styling as reference
+https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_basic
+*/
+
+#toggleButton {
+  background-color: #7a99ff;
+  padding: 10px 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  cursor: pointer;
+  position: absolute;
+}
+
+#toggleButton:hover {
+  background-color: #6a8cff;
+}
+
+.hidden,
+#largeImageView {
+  display: none;
+  grid-gap: 10px;
+  padding: 40px;
+}
+
+#paintingsList > tr > td > img {
+  cursor: pointer;
+}
+
+th {
+  cursor: pointer;
+}
+
+/* this channel helped me with css */
+/* https://www.youtube.com/watch?v=HgwCeNVPlo0&t=866s */
+
+/* 
+Referenced stackoverflow on table column spacing
+https://stackoverflow.com/questions/44429380/spacing-between-columns-in-a-table
+*/
+table {
+  font-size: 1em;
+  border-spacing: 15px 0px;
+}
+
+table tr {
+  text-align: left;
+}
+
+#map {
+  display: block;
+  height: flex;
+  width: flex;
+}
+
+ul#paintingsList {
+  list-style-type: none;
+}
+
+ul#paintingsList li {
+  font-size: 1em;
+  cursor: pointer;
+}
+
+ul#galleryList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul#galleryList li {
+  font-size: 1em;
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+}
+
+div.a section {
+  display: none; /* programmatically change this to "grid" when gallery clicked */
+  grid-gap: 5px;
+  grid-template-columns: 10rem auto;
+  text-align: left;
+}
+
+div.b section {
+  display: none; /* go ahead and change this to "block" when you have received data */
+}
+
+div.c section {
+  display: none; /* programmatically change this to "block" when gallery clicked */
+  grid-template-columns: 8rem auto;
+  font-size: 14pt;
+}
+
+div.d section {
+  display: block;
+}
+
+div.e section {
+  display: grid;
+  text-align: center;
+}
+
+#header2 label,
+div.e section label {
+  font-weight: bold;
+  font-size: 18pt;
+}
+
+div.h section,
+div.i section {
+  display: inline-block;
+}
+
+#paintingList {
+  list-style-type: none;
+}
+
+#largePainting {
+  cursor: pointer;
+}
+
+#largePaintingDetails figcaption span {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+}
+
+/* got this from site from the lab */
+/* CSS Loader source: https://loading.io/css/ */
+
+.lds-dual-ring {
+  display: none;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #cef;
+  border-color: #cef transparent #cef transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
