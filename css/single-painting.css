@@ -1,0 +1,57 @@
+body, div, span, h1, h2, h3, h4, aside, p, main, nav, ul, li {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+body {
+    padding: 15px;
+}
+
+img {
+    max-width: 100%;
+    height: 95%;
+    margin: auto;
+}
+
+.container {
+    background-color: lightgray;
+    height: 100vh;
+    display: grid;
+    grid-row-gap: 1px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.data-container {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+}
+
+.section {
+    height: inherit;
+    padding: 15px;
+}
+
+.tab-button {
+    background-color: white;
+    margin: 0px;
+    border-bottom: 0px;
+}
+
+.tab-button.open {
+    background-color: blueviolet;
+}
+
+.tab {
+    visibility: hidden;
+}
+
+.tab.visible {
+    visibility: visible;
+}
+
+.painting-color {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}

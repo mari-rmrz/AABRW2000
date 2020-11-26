@@ -9,15 +9,14 @@ header("Access-Control-Allow-Origin: *");
 
 try {
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-    $galleryGateway = new GalleryDB($conn); 
     $paintingGateway = new PaintingDB($conn);
     $json = NULL;
     
-    if ( isCorrectQueryStringInfo("id") ) {
-        $json = $paintingGateway->getForID($_GET["id"]);
+    if ( isCorrectQueryStringInfo("gallery") ) {
+        $json = $paintingGateway->getAllForGallery($_GET["gallery"]);
     }
     else {
-        $json = $galleryGateway->getAll();
+        $json = $paintingGateway->getAll();
     }
     
     echo json_encode( $json, JSON_NUMERIC_CHECK ); 
